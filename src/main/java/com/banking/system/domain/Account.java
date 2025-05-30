@@ -22,6 +22,7 @@ import org.springframework.data.annotation.CreatedDate;
 public class Account {
 
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id; //FK para User

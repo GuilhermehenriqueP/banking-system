@@ -3,13 +3,13 @@ package com.banking.system.service;
 import com.banking.system.domain.Account;
 import com.banking.system.domain.enums.AccountStatus;
 import com.banking.system.repository.AccountRepository;
-import org.hibernate.validator.constraints.UUID;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.UUID;
 
 @Service
 public class AccountService {

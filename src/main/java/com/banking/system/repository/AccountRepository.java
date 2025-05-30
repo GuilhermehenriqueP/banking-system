@@ -9,7 +9,5 @@ import java.util.UUID;
 public interface AccountRepository extends JpaRepository<Account, UUID> {
 
 
-    <T> ScopedValue<T> findById(org.hibernate.validator.constraints.UUID id);
-
     Optional<Account> findTopByOrderByAccountNumberDesc();
 }

@@ -39,6 +39,8 @@ public class BankingOperationsImpl implements BankingOperations {
         BigDecimal newBalance = account.getBalance().subtract(amount);
         account.setBalance(newBalance);
 
+        createTransaction(account, amount, TransactionType.WITHDRAW, newBalance, "Withdraw");
+
         return accountRepository.save(account);
     }
 

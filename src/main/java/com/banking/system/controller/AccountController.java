@@ -6,6 +6,7 @@ import java.util.List;
 import com.banking.system.domain.Account;
 import com.banking.system.dto.request.CreateAccountRequest;
 import com.banking.system.dto.request.DepositRequest;
+import com.banking.system.dto.request.WithdrawRequest;
 import com.banking.system.dto.response.AccountResponse;
 import com.banking.system.service.AccountService;
 import com.banking.system.service.interfaces.BankingOperations;
@@ -48,6 +49,15 @@ public class AccountController<account> {
             @RequestBody @Valid DepositRequest request) {
 
         Account account = bankingOperations.deposit(id, request.getAmount());
+        return ResponseEntity.ok(AccountResponse.from(account));
+    }
+
+    @PostMapping("/{id}/withdraw")
+    public ResponseEntity<AccountResponse> withdraw(
+            @PathVariable UUID id,
+            @RequestBody @Valid WithdrawRequest request
+            ){
+        Account account = bankingOperations.withdraw(id, request.getAmount());
         return ResponseEntity.ok(AccountResponse.from(account));
     }
 
